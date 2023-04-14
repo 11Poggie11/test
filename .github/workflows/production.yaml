@@ -15,7 +15,7 @@ jobs:
       run: |
         git config --global user.email "492992@student.fontys.nl"
         git config --global user.name "11Poggie11"
-        git checkout -b main
+        git checkout main
         git add .
         git commit -m "Copy main branch to production branch"
         git push -u origin production
