@@ -14,8 +14,8 @@ jobs:
     - name: Copy files to production branch
       run: |
         rm -r test
-        git clone https://github.com/11Poggie11/test.git $tmp_merge
-        cd $tmp_merge
+        git clone https://github.com/11Poggie11/test.git
+        cd test
         git checkout production
         git merge main
         git push -u origin production
