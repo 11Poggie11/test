@@ -17,5 +17,4 @@ jobs:
         git config --global user.name "11Poggie11"
         git checkout main
         git add .
-        git commit -m "Copy main branch to production branch"
         git push -u origin production
