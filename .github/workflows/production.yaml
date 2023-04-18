@@ -1,28 +1,21 @@
-name: Copy to production
-
+name: Main to Production
 on:
-  workflow_dispatch:
-    inputs:
-      copy_to_production:
-        description: 'Copy changes to production branch'
-        required: true
-
+  push:
+    branches:
+      - main
 jobs:
-  copy:
+  copy-to-production:
     runs-on: ubuntu-latest
-    environment: prod
     steps:
-      - name: Checkout main branch
-        uses: actions/checkout@v2
-        with:
-          ref: main
-      - name: Prompt for approval
-        if: github.event.inputs.copy_to_production == 'true'
-        run: echo "Changes will be copied to production."
-      - name: Copy to production
-        if: github.event.inputs.copy_to_production == 'true'
-        uses: EndBug/add-and-commit@v7
-        with:
-          message: 'Copy changes to production'
-          add: '.'
-          branch: production
+    - name: Checkout main branch
+      uses: actions/checkout@v2
+      with:
+        ref: main
+    - name: Copy files to production branch
+      run: |
+        git config --global user.email "492992@student.fontys.nl"
+        git config --global user.name "11Poggie11"
+        git checkout main
+        git add .
+        git commit -m "Copy main branch to production branch"
+        git push -u origin production
