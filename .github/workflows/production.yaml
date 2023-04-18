@@ -16,8 +16,9 @@ jobs:
         git config --global user.email "492992@student.fontys.nl"
         git config --global user.name "11poggie11"
         rm -r test
-        git clone https://11Poggie11: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@github.com/11Poggie11/test.git
+        git clone https://github.com/11Poggie11/test.git
         cd test
         git checkout production
         git merge main
-        git push -u origin production
+        git push -u https://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@github.com/11Poggie11/test.git origin/production
+
