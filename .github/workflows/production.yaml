@@ -13,6 +13,8 @@ jobs:
         ref: main
     - name: Copy files to production branch
       run: |
+        git config --global user.email "492992@student.fontys.nl"
+        git config --global user.name "11poggie11"
         rm -r test
         git clone https://github.com/11Poggie11/test.git
         cd test
