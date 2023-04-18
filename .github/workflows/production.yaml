@@ -15,4 +15,5 @@ jobs:
       run: |
         git config --global user.email "492992@student.fontys.nl"
         git config --global user.name "11Poggie11"
-        git push -u origin production
+        git checkout production
+        git merge main
