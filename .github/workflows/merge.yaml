@@ -19,7 +19,7 @@ jobs:
         git config --global user.name "11Poggie11"
         git fetch
         git checkout production
-        git merge origin/main --no-edit --allow-unrelated-histories
+        git merge origin/main --no-edit -X theirs--allow-unrelated-histories
         git push origin production
 
 
