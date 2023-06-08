@@ -1,4 +1,4 @@
-name: Merge main into production
+name: Main to Production
 
 on:
   push:
@@ -6,20 +6,14 @@ on:
       - main
 
 jobs:
-  merge-production:
+  copy_to_production:
     runs-on: ubuntu-latest
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-      with:
-        ref: production
-    - name: Merge main into production
-      run: |
-        git config --global user.email "492992@student.fontys.nl"
-        git config --global user.name "11Poggie11"
-        git fetch
-        git checkout production
-        git merge origin/main --no-edit -X theirs --allow-unrelated-histories
-        git push origin production
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-
+      - name: Copy main to production
+        run: |
+          git branch -f production main
+          git push origin production --force
