@@ -6,14 +6,16 @@ on:
       - main
 
 jobs:
-  copy_to_production:
+  copy-to-production:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Check out repository
         uses: actions/checkout@v2
 
-      - name: Copy main to production
+      - name: Copy files to production branch
         run: |
-          git branch -f production main
-          git push origin production --force
+          git config --global user.name "11Poggie11"
+          git config --global user.email "492992@student.fontys.nl"
+          git checkout -B production
+          git push origin production
