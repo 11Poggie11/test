@@ -13,9 +13,13 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2
 
-      - name: Copy files to production branch
+      - name: Set up Git
         run: |
-          git config --global user.name "11Poggie11"
+          git config --global user.name "11poggie11"
           git config --global user.email "492992@student.fontys.nl"
-          git checkout -B production
+
+      - name: Switch to production branch
+        run: |
+          git checkout production
+          git merge main --no-ff --no-edit
           git push origin production
