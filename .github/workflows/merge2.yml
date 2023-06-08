@@ -13,8 +13,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Merge Main to Production
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
         run: |
-          git config user.name "11Poggie11"
+          git config user.name "11poggie11"
           git config user.email "492992@student.fontys.nl"
           git checkout production
           git merge main --no-ff --no-edit
