@@ -1,0 +1,21 @@
+name: Merge Main to Production
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Merge Main to Production
+        run: |
+          git config user.name "11Poggie11"
+          git config user.email "492992@student.fontys.nl"
+          git checkout production
+          git merge main --no-ff --no-edit
+          git push origin production
