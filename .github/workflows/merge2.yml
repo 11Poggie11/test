@@ -20,6 +20,6 @@ jobs:
 
       - name: Switch to production branch
         run: |
-          git checkout production
+          git checkout prod
           git merge main --no-ff --no-edit
           git push origin prod
